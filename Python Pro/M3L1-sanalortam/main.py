@@ -25,6 +25,16 @@ def random_fact():
     return f'<p>{random.choice(facts_list)}</p>'
 
 
+@app.route("/sifre")
+def sifre_ureticisi():
+    karakterler = "+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    sifre_uzunlugu = random.randint(5,15)
+
+    sifre = ""
+    for i in range(sifre_uzunlugu):
+        sifre += random.choice(karakterler)
+
+    return f'<h1>Şifre üreticisi</h1>' + '<p>Yeni şifreniz: <b>' + sifre + '</b></p>'
 
 
 app.run(debug=True)
